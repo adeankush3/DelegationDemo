@@ -22,6 +22,10 @@ namespace DelegationDemo
             operation obj=new operation(Addition);
             Console.WriteLine("Addition is {0}", obj(17, 33));
             Console.WriteLine();
+
+            
+            MulticastDelegation.ImplementDelegate();
+
         }
     }
 }
