@@ -6,26 +6,34 @@ using System.Threading.Tasks;
 
 namespace DelegationDemo
 {
-    public delegate int operation(int x, int y);
     public class Program
     {
-        static int Addition(int x,int y)
+        public static void Main(string[] args)
         {
-            return x + y;   
-        }
-        
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to Delection program");
 
-            Console.WriteLine("Delegation POC!");
-            operation obj=new operation(Addition);
-            Console.WriteLine("Addition is {0}", obj(17, 33));
-            Console.WriteLine();
+            System.Console.WriteLine("Welcome to Delegates Demo!!!\n Enter number to Choose Operation:\n" +
+            "1. Single Cast Delegates\n" +
+            "2. Multi Cast Delegate\n" +
+            "3. Exit");
+            int num = Convert.ToInt32(Console.ReadLine());
 
-            
-            MulticastDelegation.ImplementDelegate();
-
+            switch (num)
+            {
+                case 1:
+                    SingleCastDelegation singleCastDelegation = new SingleCastDelegation();
+                    singleCastDelegation.Delegates();
+                    break;
+               
+                case 2:
+                    MultiCastDelegation multicastDelegate = new MultiCastDelegation();
+                    multicastDelegate.DelegatesMul();
+                    break;
+                
+               
+                default:
+                    System.Console.WriteLine("Choose valid option..");
+                    break;
+            }
         }
     }
 }

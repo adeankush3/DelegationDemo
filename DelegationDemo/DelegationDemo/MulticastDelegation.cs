@@ -6,27 +6,17 @@ using System.Threading.Tasks;
 
 namespace DelegationDemo
 {
-    public class MulticastDelegation
+    public class MultiCastDelegation
     {
-        delegate void DelOp(int x, int y);
-        public static void ImplementDelegate()
-        {
-            DelOp obj= Operation.Add;
-            obj += Operation.square;
-            obj(5, 5);
-            obj(15, 12);
+        delegate void DelegatesOperations(int x, int y);
 
-        }
-        public class Operation
+        public void DelegatesMul()
         {
-            public static void Add(int a, int b)
-            {
-                Console.WriteLine("Addition{0}", a + b);
-            }
-            public static void square(int a, int b)
-            {
-                Console.WriteLine("Multiple{0}", a * b);
-            }
+            DelegatesOperations obj = Operation.Add;
+            obj += Operation.Multiplication;
+
+            obj(2, 6);
+            obj(4, 5);
         }
     }
 }
